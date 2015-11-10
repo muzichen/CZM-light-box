@@ -52,9 +52,16 @@ var CZM_lightbox = {
             self.addEvent(ele[i],'click',function(e){
                 var children = this.childNodes,
                     oImg = self.getImgChild(children);
+                self.aIsReady(this);
                 self.imgShowing(oImg);
                 
             });
+        }
+    },
+    aIsReady : function(a){
+        var href = a.href;
+        if(href !== 'javascript:;' || href !== 'javascript:void(0);'){
+            a.href = 'javascript:;'
         }
     },
     getImgChild : function(children){
